@@ -24,7 +24,7 @@ exports.findAll = function(req, res) {
     
     console.log('All Wines Request');
     //Modified the res.send code to return two JSON Objects 
-    res.send({"id":"ID", "name":"nombre", "description":"DESCRIPCION"});
+     res.send({"id":"ID", "name":"nombre", "description":"DESCRIPCION"});
 
     /*
      *Put Phase2 Code here.
