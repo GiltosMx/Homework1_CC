@@ -6,8 +6,8 @@
  *    Actividad 1: Diseño de un WebService         *
  *    Codigo Base: Alvaro Parres (parres@iteso.mx) * 
  *                                                 * 
- *    Alumno: <COMPLETAR SU NOMBRE>                *
- *    Exp: <Numero_de_Expediente>                  *
+ *    Alumno: Gilberto Adrian Toscano Prieto       *
+ *    Exp: is698076                                *
  *                                                 *
  ***************************************************
  *                                                 *
@@ -35,37 +35,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Routes
-/*
- * ********************************************
- * @TODO Complete las funciones a fin de tener 
- * todas las funciones RESTful. 
- * ********************************************
- */
-
-// Phase 1:  First Routes.
 app.get('/wines', wines.findAll);
 app.get('/wines/:id', wines.findById);
+app.post('/wines', wines.addWine);
+app.put('/wines/:id', wines.updateWine);
+app.delete('/wines/:id', wines.deleteWine);
 
-/*
- * Phase 2: 
- * Add the missing RESTfull methods 
- * Method: POST URL: /wines  CallBack: wines.addWine
- * Method: PUT URL: /wines/:id  CallBack: wines.updateWine       
- * Method: DELETE URL: /wines/:id  CallBack: wines.deleteWine
-*/
-
-
-/*
- * Phase 2: 
-  * Uncomment Database Connection Lines
-*/
-//Database Connection
-//mongoose.connect('mongodb://localhost/wines',function(err, res) {  
-//    if(err) {
-//        console.log('ERROR: connecting to Database. ' + err);
-//    }
-//});
+// Database Connection
+mongoose.connect('mongodb://localhost/wines',function(err, res) {  
+   if(err) {
+       console.log('ERROR: connecting to Database. ' + err);
+   }
+});
           
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
